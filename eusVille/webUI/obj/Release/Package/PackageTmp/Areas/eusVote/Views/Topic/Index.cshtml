@@ -1,0 +1,70 @@
+﻿@model IEnumerable<webUI.Models.Topic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TopicURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Search)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tags)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryList.Category)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Topic1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TopicURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Search)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tags)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryList.Category)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TopicID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TopicID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TopicID })
+        </td>
+    </tr>
+}
+
+</table>

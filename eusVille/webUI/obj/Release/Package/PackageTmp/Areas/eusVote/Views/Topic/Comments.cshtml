@@ -1,0 +1,38 @@
+﻿@*This is the view for Topic comments. This gets injected into the eusVote_Topic/Index.cshtml view*@
+
+@model IEnumerable<webUI.Models.Comment>
+
+
+
+<div class="answer-displayComments">
+    <br />
+
+    @*Create two columns of comments. First comment is first column, next coment is 2nd column. Then repeat next line.*@
+    @for (int i = 0; i < Model.Count() && i < 4; i++)
+    {
+
+        <div class="answer-review">
+            @Model.ElementAt(i).Comment1<br /><br />
+            thumbs up | thumbs down | flag as inappropriate
+        </div>
+
+        i++;   @*increment counter to get next review in the next column*@
+
+        if (i < Model.Count() && i < 4)
+        {
+            <div class="answer-review">
+                @Model.ElementAt(i).Comment1<br /><br />
+                thumbs up | thumbs down | flag as inappropriate
+            </div>
+        }
+
+        <br style="clear:both" />
+    }
+
+    @if (Model.Count() > 4)
+    {
+        <a href=@ViewBag.Url>See all comments (@Model.Count())</a>    @*Go to new page to show all comments for this option*@
+    }
+</div>
+
+

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eusVoteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="AnswerID" />
+    </Key>
+    <Property Name="AnswerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TopicID" Type="Int64" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RatingScore" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Count" Type="Int64" />
+    <Property Name="UserID" Type="Int64" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Topic" Relationship="Self.FK_Answer_Topic" FromRole="Answer" ToRole="Topic" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Answer" FromRole="Answer" ToRole="Comment" />
+    <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Answer" FromRole="Answer" ToRole="Rating" />
+  </EntityType>
+  <EntityType Name="CategoryList">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Topics" Relationship="Self.FK_Topic_CategoryList" FromRole="CategoryList" ToRole="Topic" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AnswerID" Type="Int64" />
+    <Property Name="UserID" Type="Int64" />
+    <Property Name="Comment1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReplyTo" Type="Int64" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Answer" Relationship="Self.FK_Comment_Answer" FromRole="Comment" ToRole="Answer" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="RatingID" />
+    </Key>
+    <Property Name="RatingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" />
+    <Property Name="AnswerID" Type="Int64" />
+    <Property Name="Rating1" Type="Int32" />
+    <NavigationProperty Name="Answer" Relationship="Self.FK_Rating_Answer" FromRole="Rating" ToRole="Answer" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="TopicID" />
+    </Key>
+    <Property Name="TopicID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Topic1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TopicURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Search" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Tags" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int64" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answer_Topic" FromRole="Topic" ToRole="Answer" />
+    <NavigationProperty Name="CategoryList" Relationship="Self.FK_Topic_CategoryList" FromRole="Topic" ToRole="CategoryList" />
+  </EntityType>
+  <Association Name="FK_Answer_Topic">
+    <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="TopicID" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Answer">
+    <End Role="Answer" Type="Self.Answer" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answer">
+        <PropertyRef Name="AnswerID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="AnswerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rating_Answer">
+    <End Role="Answer" Type="Self.Answer" Multiplicity="0..1" />
+    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answer">
+        <PropertyRef Name="AnswerID" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="AnswerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Topic_CategoryList">
+    <End Role="CategoryList" Type="Self.CategoryList" Multiplicity="0..1" />
+    <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryList">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Topic">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="eusVoteEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answers" EntityType="Self.Answer" />
+    <EntitySet Name="CategoryLists" EntityType="Self.CategoryList" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Ratings" EntityType="Self.Rating" />
+    <EntitySet Name="Topics" EntityType="Self.Topic" />
+    <AssociationSet Name="FK_Answer_Topic" Association="Self.FK_Answer_Topic">
+      <End Role="Topic" EntitySet="Topics" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Answer" Association="Self.FK_Comment_Answer">
+      <End Role="Answer" EntitySet="Answers" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rating_Answer" Association="Self.FK_Rating_Answer">
+      <End Role="Answer" EntitySet="Answers" />
+      <End Role="Rating" EntitySet="Ratings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Topic_CategoryList" Association="Self.FK_Topic_CategoryList">
+      <End Role="CategoryList" EntitySet="CategoryLists" />
+      <End Role="Topic" EntitySet="Topics" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

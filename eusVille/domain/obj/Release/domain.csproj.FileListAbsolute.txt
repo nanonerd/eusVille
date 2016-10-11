@@ -1,0 +1,4 @@
+C:\projects\eusVille\eusVille\domain\bin\Release\domain.dll
+C:\projects\eusVille\eusVille\domain\bin\Release\domain.pdb
+C:\projects\eusVille\eusVille\domain\obj\Release\domain.dll
+C:\projects\eusVille\eusVille\domain\obj\Release\domain.pdb

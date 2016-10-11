@@ -1,0 +1,122 @@
+﻿@model IEnumerable<webUI.Models.Topic>
+
+@{
+    ViewBag.Title = "eusVote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/StarRating/jquery.raty.css" rel="stylesheet" />
+
+<div class="jumbotron">
+    <p class="lead"><input type="text" />    <button name="button">search</button><span>&nbsp;&nbsp;&nbsp;&nbsp;... the collective wisdom of Everyone Under the Sun</span></p>
+</div>
+
+@*<div>
+        <div id="raty" style="width: 160px;float: left"></div><input id="hint" style="width: 120px; float:left; text-align:center" type="text" />
+        <button id="ratyButton">click for score</button>
+    </div>*@
+
+<h3 style="clear:both">Trending Topics</h3>
+<p>@Html.ActionLink("Create New", "Create", "Topic")</p>
+
+
+@foreach (var topic in Model)
+{
+    @*<h4>@Html.ActionLink(@topic.Topic1 + " + ", @topic.TopicID + "/" + @topic.TopicURL, "Topic")</h4><br />*@
+    <h4><a href="eusVote/@topic.TopicID/@topic.TopicURL">@topic.Topic1 + </a></h4><br />
+}
+
+
+@section scripts{
+
+    @*<script src="~/Scripts/StarRating/jquery.raty.js"></script>
+
+        <script type="text/javascript">
+            $('#raty').raty({
+                //cancel: true,
+                hints: ['0.5', 'one', '1.5', 'two', '2.5', 'three', '3.5', 'four', '4.5', 'five'],
+                half: true,
+                halfShow: true,
+                starType: 'i',
+                target: '#hint'
+            });
+
+            $('#ratyButton').click(function () {
+                var x = $('#star').raty('score');
+
+                alert(x);
+            });
+        </script>*@
+
+}
+
+
+@*@model IEnumerable<webUI.Models.Topic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tags)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TopicURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Search)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryList.Category)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Topic1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tags)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TopicURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Search)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryList.Category)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TopicID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TopicID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TopicID })
+        </td>
+    </tr>
+}
+
+</table>*@

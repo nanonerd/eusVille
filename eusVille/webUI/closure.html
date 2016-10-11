@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>closure</title>
+</head>
+<body>
+    <button type="button" onclick="gAlertNumber()">number</button>
+    <button type="button" onclick="show()">show</button>
+
+    <script type="text/javascript">
+        function show() {
+            alert('hi');
+        };
+
+        function setupSomeGlobals() {
+            // Local variable that ends up within closure
+            var num = 100;
+            // Store some references to functions as global variables
+            gAlertNumber = function () { alert(num); }
+            gIncreaseNumber = function () { num++; }
+            gSetNumber = function (x) { num = x; }
+        };
+
+        setupSomeGlobals();
+
+        //gAlertNumber();
+
+        function set() {
+            set.gAlertNumber;
+        }
+
+
+        var x = 1;
+        var y = '1';
+
+        if (x == y)
+        {
+            console.log('x == y');
+        }
+        else
+        {
+            console.log('x !== y');
+        }
+        
+        if (x === y)
+        {
+            console.log('x===y');
+        }
+        else
+        {
+            console.log('x !=== y');
+        }
+
+
+        //var obj = { outerWidth: 20 };
+
+        //function say() {
+        //    alert(this.outerWidth);
+        //}
+
+        //say();//will alert window.outerWidth
+        //say.apply(obj);//will alert obj.outerWidth
+
+
+        //var myString = 'Vikas' // Create a primitive string object.
+        //var myStringCopy = myString; // Copy its value into a new variable.
+        //var myString = null; // Manipulate the value
+        //console.log(myString, myStringCopy);
+
+        //function foo1() {
+        //    return            {
+        //        bar: "hello"
+        //    };
+        //}
+
+        ////function foo2() {
+        ////    return            {
+        ////        bar: "hello"
+        ////    };
+        ////}
+
+        //console.log("foo1 returns:");
+        //console.log(foo1());
+        ////console.log("foo2 returns:");
+        ////console.log(foo2());
+
+
+        console.log(0.1 + 0.2);
+        console.log(parseFloat(0.1 + 0.2).toFixed(2) == 0.3);
+
+
+
+    </script>
+</body>
+</html>

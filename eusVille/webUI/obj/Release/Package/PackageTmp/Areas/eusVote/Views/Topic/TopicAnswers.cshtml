@@ -1,0 +1,98 @@
+﻿
+@*@{
+    ViewBag.Title = "TopicAnswers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TopicAnswers</h2>*@
+
+
+@model IEnumerable<webUI.Models.Answer>
+
+@{
+    ViewBag.Title = "Topic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Scripts/kartikRating/css/star-rating.css" rel="stylesheet" />
+
+@Html.Hidden("UserID", (string)ViewBag.UserID)   @*pass in UserID to client. "0" means user not logged in*@
+
+<h2>@ViewBag.TopicTitle</h2>
+
+<h3>Top 5 answers</h3>
+
+<p>
+    @Html.ActionLink("Add Answer", "Create", new { controller = "Answers", id = ViewBag.TopicID })
+</p>
+
+<div>
+    @for (int i = 0; i < @Model.Count() && i < 5; i++)
+    {
+        <div class="answer-container">
+            <div class="answer-main">
+                <h4>@Model.ElementAt(i).Title</h4>
+
+                @Model.ElementAt(i).Detail<br /><br />
+                @*<button class="buttonSeeComments" data-id="@Model.ElementAt(i).OptionID">Best comments</button>*@
+                <button class="buttonAddCommentRate" data-id="@Model.ElementAt(i).AnswerID">Add comment/rate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="span-buttonAddCommentRate">Log in to comment and/or rate</span>
+            </div>
+
+            <div class="answer-eusScore">
+                eusScore (<span class="answer-count">@Model.ElementAt(i).Count</span>)<br /><br />
+                <span class="span-answer-eusScore">@(Math.Round((decimal)(Model.ElementAt(i).RatingScore)))%</span>
+            </div>
+            <div class="answer-thankYou">
+                Rating/comment posted
+            </div>
+
+            <br style="clear:both" />
+
+            <div class="answer-commentRateBox">
+                <br />
+                <div class="answer-comment">
+                    <textarea class="answer-textArea" placeholder="Comment must be more than 5 words ..."></textarea>
+                </div>
+
+                <div class="answer-rateIt">
+                    <input data-id="@Model.ElementAt(i).AnswerID" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm"><br />
+                    <br /><br />
+                    <button class="buttonSubmit" disabled data-id="@Model.ElementAt(i).AnswerID">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="buttonCancel">Cancel</button><br />
+                    <span id="span-enable-message" style="font-size:smaller">(rate to enable)</span>
+                </div>
+                <br style="clear:both" />
+            </div>
+
+            <div>
+                @*displays the comments using a partial view*@
+                @{Html.RenderAction("Comments", "Topic", new { answerID = @Model.ElementAt(i).AnswerID });}
+            </div>
+
+        </div>
+
+        <hr />
+    }
+
+    <br style="clear:both" />
+</div>
+
+<hr />
+
+@*Display more answers here*@
+@if (@Model.Count() > 5)
+{
+    <h4>More answers</h4>
+
+    for (int i = 5; i < @Model.Count(); i++)
+    {
+        @Model.ElementAt(i).Title @: | Rated: @((int)Model.ElementAt(i).RatingScore)<br /><br />
+        <p>Details: @Model.ElementAt(i).Detail<br /></p>
+
+    }
+}
+
+@section scripts{
+    <script src="~/Scripts/kartikRating/js/star-rating.js" type="text/javascript"></script>
+    <script src="~/Scripts/eusVote/eusVote_Topic.js"></script>
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="85768cd0390e420a92836321b0a39b2a" Name="Diagram1">
+        <EntityTypeShape EntityType="eusVoteModel.Answer" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eusVoteModel.CategoryList" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eusVoteModel.Comment" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eusVoteModel.Rating" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eusVoteModel.Topic" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="eusVoteModel.FK_Answer_Topic" ManuallyRouted="false" />
+        <AssociationConnector Association="eusVoteModel.FK_Comment_Answer" ManuallyRouted="false" />
+        <AssociationConnector Association="eusVoteModel.FK_Rating_Answer" ManuallyRouted="false" />
+        <AssociationConnector Association="eusVoteModel.FK_Topic_CategoryList" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

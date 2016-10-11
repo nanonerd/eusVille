@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Content/test.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="" id="content">
+        hi
+    </div>
+
+    <script src="Scripts/external/react/react.js"></script>
+    <script src="Scripts/external/react/JSXTransformer.js"></script>
+    <script type="text/jsx">
+
+
+
+        var Hello = React.createClass({
+        render: function(){alert('one');
+        return(
+        <div>
+            <p>hello</p>
+
+            hello world
+        </div>
+        );
+        }
+        });
+
+        React.render(
+        <Hello />, document.getElementById('content'));
+
+
+    </script>
+</body>
+</html>

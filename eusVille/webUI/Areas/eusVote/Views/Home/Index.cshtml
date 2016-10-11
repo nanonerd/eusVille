@@ -1,0 +1,33 @@
+﻿@model IEnumerable<webUI.Models.Topic>
+
+@{
+    ViewBag.Title = "eusVote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <p class="lead"><input type="text" placeholder="Not yet active ..." disabled="disabled"/>    <button name="button" disabled="disabled">search</button><span>&nbsp;&nbsp;&nbsp;&nbsp;... the collective wisdom of Everyone Under the Sun</span></p>
+</div>
+
+
+<h3 style="clear:both">Trending Topics <span style="font-size: small"></span></h3>
+
+@if (Convert.ToInt32(ViewBag.UserID) == 0)
+{
+    <p>Log in to create a topic</p>
+}
+else
+{ 
+    <p>@Html.ActionLink("Create New", "Create", "Topic")</p>
+}
+<br />
+
+@foreach (var topic in Model)
+{   
+    <h4><a href="eusVote/@topic.TopicID/@topic.TopicURL">@topic.Topic1 + </a></h4><br />
+}
+
+
+@section scripts{
+       
+}

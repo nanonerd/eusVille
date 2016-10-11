@@ -1,0 +1,52 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+@*<!DOCTYPE HTML>
+<html>*@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title eusVille (beta)</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("eusVille (beta)", "Index", new { area = "", controller="Home" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", new { area = "", controller="Home" })</li>
+                    <li>@Html.ActionLink("eusVote", "Index", new { area = "eusVote", controller="Home" })</li>
+                    <li>@Html.ActionLink("About", "About", new { area = "", controller="Home" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", new { area = "", controller="Home" })</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">        
+        <div style="min-height:550px">
+            @RenderBody()
+        </div>
+        <hr />
+        <footer>
+            <p>
+                <img src="~/Content/Images/orange_icon_25x23.jpg" />&nbsp;&nbsp;Code is organic, freshly grown in Orange County, California - &copy;@DateTime.Now.Year, eusVille</p>
+        </footer>
+    </div>
+        
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/eus")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

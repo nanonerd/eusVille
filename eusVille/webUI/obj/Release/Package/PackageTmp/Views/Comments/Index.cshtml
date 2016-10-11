@@ -1,0 +1,29 @@
+﻿@model IEnumerable<domain.eusVoteVM.CommentModel>
+
+@{
+    ViewBag.Title = "eusVille Comments";
+}
+
+@Html.Hidden("UserID", (string)ViewBag.UserID)   @*pass in UserID to client. "0" means user not logged in*@
+@Html.Hidden("AnswerID", (string)ViewBag.AnswerID)    @*pass in AnswerID to client. Needed for JS to use a param in ajax URL call*@
+@Html.Hidden("AnswerTitle", (string)ViewBag.AnswerTitle)    @*pass in AnswerTitle to client to use in header text*@
+
+<div id="content"></div>
+
+@Html.React("CommentBox", new 
+{
+    initialData = Model,
+    url = Url.Action("/Comments/"),
+    submitUrl = "../eusVote/Topic/",
+    pollInterval = 2000
+})
+
+
+@section scripts{   
+<script src="~/Scripts/external/react/react.min.js"></script>
+@Scripts.Render("~/bundles/main")
+@Html.ReactInitJavaScript()
+}
+
+
+

@@ -1,0 +1,60 @@
+﻿@model List<webUI.Models.GetTopicAnswers_Result>
+@*IEnumerable<webUI.Models.Answer>*@
+@using System.Web.Optimization.React;
+
+
+@{
+    ViewBag.Title = "Topic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Scripts/external/kartikRating/css/star-rating.min.css" rel="stylesheet" />
+
+@Html.Hidden("UserID", (string)ViewBag.UserID)   @*pass in UserID to client. "0" means user not logged in*@
+
+<h2>
+    @ViewBag.TopicTitle - Top 8
+
+    @if (Convert.ToInt32(ViewBag.UserID) == 0)
+    {
+        <span style="font-size:medium">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log in to create answer</span>
+    }
+    else
+    {
+        <span>(@Html.ActionLink("Add Answer", "Create", new { controller = "Answers", id = ViewBag.TopicID }))</span>
+    }    
+</h2>
+
+
+
+<br/>
+
+<div id="topicAnswers"></div>
+
+@Html.React("TopicAnswers", new
+    {
+        initialAnswers = Model,
+        userID = (string)ViewBag.UserID,
+        topicTitle = ViewBag.TopicTitle,
+        topicID = ViewBag.TopicID,
+        baseUrl = ViewBag.BaseUrl,
+        url = Url.Action("TopicGet", new { Filter = "AnswersGet", FilterData = ViewBag.TopicID })
+    })
+
+
+@section scripts{
+<script src="@Url.Content("~/Scripts/external/react/react.min.js")"></script>
+<script src="@Url.Content("~/Scripts/external/jQuery/jquery-2.1.3.js")"></script>
+
+
+@*<script src="@Url.Content("~/Scripts/external/kartikRating/js/star-rating.js")"></script>
+<script src="@Url.Content("~/Scripts/internal/eus/eusAPI.js")"></script>
+<script src="@Url.Content("~/Scripts/internal/eus/eusCommon.js")"></script>
+<script src="@Url.Content("~/Scripts/internal/eusVote/TopicAnswers.jsx")"></script>*@
+
+
+@Scripts.Render("~/bundles/main")
+@Html.ReactInitJavaScript() 
+}
+
+

@@ -1,0 +1,11 @@
+﻿/// <reference path="modernizr-2.8.3.js" />
+/// <reference path="jquery-2.1.3.js" />
+/// <autosync enabled="true" />
+/// <reference path="bootstrap.js" />
+/// <reference path="respond.js" />
+/// <reference path="starrating/jquery.raty.js" />
+/// <reference path="kartikrating/js/star-rating.js" />
+/// <reference path="kartikrating/version 2.5/js/star-rating.js" />
+/// <reference path="jquery/jquery.validate.unobtrusive.min.js" />
+/// <reference path="jquery/jquery.validate.min.js" />
+/// <reference path="jquery/jquery-1.10.2.min.js" />

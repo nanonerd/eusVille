@@ -1,0 +1,75 @@
+﻿@model webUI.Models.Topic
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Topic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Topic1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tags)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tags)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeStamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Search)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Search)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryList.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryList.Category)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TopicID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

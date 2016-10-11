@@ -1,0 +1,35 @@
+﻿@*JSX file is scripts/internal/eusVote/Comments.jsx*@
+
+@model IEnumerable<domain.eusVoteVM.CommentModel>
+
+@{
+    ViewBag.Title = "Comments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Hidden("UserID", (string)ViewBag.UserID)   @*pass in UserID to client. "0" means user not logged in*@
+@Html.Hidden("UserName", (string)ViewBag.UserName)
+@Html.Hidden("AnswerID", (string)ViewBag.AnswerID)    @*pass in AnswerID to client. Needed for JS to use a param in ajax URL call*@
+@Html.Hidden("AnswerTitle", (string)ViewBag.AnswerTitle)    @*pass in AnswerTitle to client to use in header text*@
+@Html.Hidden("TopicID", (string)ViewBag.TopicID)
+@Html.Hidden("TopicTitle", (string)ViewBag.TopicTitle)
+@Html.Hidden("TopicTitleURL", (string)ViewBag.TopicTitleURL)
+@Html.Hidden("BaseUrl", (string)ViewBag.BaseUrl)
+
+<div id="content"></div>
+
+@Html.React("CommentBox", new
+{
+    initialData = Model,
+    url = Url.Action("/Comment/"),
+    submitUrl = "../eusVote/Topic/AddComment/",
+    pollInterval = 2000
+})
+
+
+@section scripts{
+    <script src="~/Scripts/external/react/react.min.js"></script>
+    <script src="~/Scripts/internal/eusVote/Comments.jsx"></script>
+    @Scripts.Render("~/bundles/main")
+    @Html.ReactInitJavaScript()
+}

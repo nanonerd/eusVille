@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eusCommonModelStoreContainer" CdmEntityContainer="eusCommonEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="eusCommonModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_ErrorLog">
+      <EntityTypeMapping TypeName="eusCommonModel.Admin_ErrorLog">
+        <MappingFragment StoreEntitySet="Admin_ErrorLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="ErrorLocation" ColumnName="ErrorLocation" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="IsOpen" ColumnName="IsOpen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_Log">
+      <EntityTypeMapping TypeName="eusCommonModel.Admin_Log">
+        <MappingFragment StoreEntitySet="Admin_Log">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsError" ColumnName="IsError" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_ToDo">
+      <EntityTypeMapping TypeName="eusCommonModel.Admin_ToDo">
+        <MappingFragment StoreEntitySet="Admin_ToDo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="eusCommonModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="eusCommonModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="eusCommonModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="eusCommonModel.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="eusCommonModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Language2" ColumnName="Language2" />
+          <ScalarProperty Name="Language1" ColumnName="Language1" />
+          <ScalarProperty Name="Ethnicity2" ColumnName="Ethnicity2" />
+          <ScalarProperty Name="Ethnicity1" ColumnName="Ethnicity1" />
+          <ScalarProperty Name="ThumbURL" ColumnName="ThumbURL" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VilleNum" ColumnName="VilleNum" />
+          <ScalarProperty Name="evNum" ColumnName="evNum" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Geo_Cities">
+      <EntityTypeMapping TypeName="eusCommonModel.Geo_Cities">
+        <MappingFragment StoreEntitySet="Geo_Cities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VilleId" ColumnName="VilleId" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CityPopulation" ColumnName="CityPopulation" />
+          <ScalarProperty Name="CityAsianPopulation" ColumnName="CityAsianPopulation" />
+          <ScalarProperty Name="PostalCodePopulation" ColumnName="PostalCodePopulation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Geo_Countries">
+      <EntityTypeMapping TypeName="eusCommonModel.Geo_Countries">
+        <MappingFragment StoreEntitySet="Geo_Countries">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="VilleId" ColumnName="VilleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Geo_Ville">
+      <EntityTypeMapping TypeName="eusCommonModel.Geo_Ville">
+        <MappingFragment StoreEntitySet="Geo_Ville">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ville" ColumnName="Ville" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Coins">
+      <EntityTypeMapping TypeName="eusCommonModel.User_Coins">
+        <MappingFragment StoreEntitySet="User_Coins">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Gold" ColumnName="Gold" />
+          <ScalarProperty Name="Silver" ColumnName="Silver" />
+          <ScalarProperty Name="Bronze" ColumnName="Bronze" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Flag">
+      <EntityTypeMapping TypeName="eusCommonModel.User_Flag">
+        <MappingFragment StoreEntitySet="User_Flag">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FlagType" ColumnName="FlagType" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="WhereAt" ColumnName="WhereAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Location">
+      <EntityTypeMapping TypeName="eusCommonModel.User_Location">
+        <MappingFragment StoreEntitySet="User_Location">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="VilleOne" ColumnName="VilleOne" />
+          <ScalarProperty Name="VilleTwo" ColumnName="VilleTwo" />
+          <ScalarProperty Name="Add1" ColumnName="Add1" />
+          <ScalarProperty Name="Add2" ColumnName="Add2" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Profile">
+      <EntityTypeMapping TypeName="eusCommonModel.User_Profile">
+        <MappingFragment StoreEntitySet="User_Profile">
+          <ScalarProperty Name="ThumbURL" ColumnName="ThumbURL" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="evNum" ColumnName="evNum" />
+          <ScalarProperty Name="VilleNum" ColumnName="VilleNum" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="Ethnicity1" ColumnName="Ethnicity1" />
+          <ScalarProperty Name="Ethnicity2" ColumnName="Ethnicity2" />
+          <ScalarProperty Name="Language1" ColumnName="Language1" />
+          <ScalarProperty Name="Language2" ColumnName="Language2" />
+          <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Transactions">
+      <EntityTypeMapping TypeName="eusCommonModel.User_Transactions">
+        <MappingFragment StoreEntitySet="User_Transactions">
+          <ScalarProperty Name="TransId" ColumnName="TransId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="TransGold" ColumnName="TransGold" />
+          <ScalarProperty Name="TransSilver" ColumnName="TransSilver" />
+          <ScalarProperty Name="TransBronze" ColumnName="TransBronze" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Geo_ZipCodes">
+      <EntityTypeMapping TypeName="eusCommonModel.Geo_ZipCodes">
+        <MappingFragment StoreEntitySet="Geo_ZipCodes">
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+          <ScalarProperty Name="CityType" ColumnName="CityType" />
+          <ScalarProperty Name="CityAliasAbbreviation" ColumnName="CityAliasAbbreviation" />
+          <ScalarProperty Name="CityAliasName" ColumnName="CityAliasName" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+          <ScalarProperty Name="Elevation" ColumnName="Elevation" />
+          <ScalarProperty Name="CountyFIPS" ColumnName="CountyFIPS" />
+          <ScalarProperty Name="DayLightSaving" ColumnName="DayLightSaving" />
+          <ScalarProperty Name="PreferredLastLineKey" ColumnName="PreferredLastLineKey" />
+          <ScalarProperty Name="ClassificationCode" ColumnName="ClassificationCode" />
+          <ScalarProperty Name="MultiCounty" ColumnName="MultiCounty" />
+          <ScalarProperty Name="StateFIPS" ColumnName="StateFIPS" />
+          <ScalarProperty Name="CityStateKey" ColumnName="CityStateKey" />
+          <ScalarProperty Name="CityAliasCode" ColumnName="CityAliasCode" />
+          <ScalarProperty Name="PrimaryRecord" ColumnName="PrimaryRecord" />
+          <ScalarProperty Name="CityMixedCase" ColumnName="CityMixedCase" />
+          <ScalarProperty Name="CityAliasMixedCase" ColumnName="CityAliasMixedCase" />
+          <ScalarProperty Name="StateANSI" ColumnName="StateANSI" />
+          <ScalarProperty Name="CountyANSI" ColumnName="CountyANSI" />
+          <ScalarProperty Name="FacilityCode" ColumnName="FacilityCode" />
+          <ScalarProperty Name="CityDeliveryIndicator" ColumnName="CityDeliveryIndicator" />
+          <ScalarProperty Name="CarrierRouteRateSortation" ColumnName="CarrierRouteRateSortation" />
+          <ScalarProperty Name="FinanceNumber" ColumnName="FinanceNumber" />
+          <ScalarProperty Name="UniqueZIPName" ColumnName="UniqueZIPName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetLocations" FunctionName="eusCommonModel.Store.GetLocations" />
+  </EntityContainerMapping>
+</Mapping>
